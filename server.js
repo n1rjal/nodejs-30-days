@@ -4,7 +4,6 @@ const fs = require("fs");
 var controller = function (req, res) {
   var reqUrl = req.url; // requested url
   switch (reqUrl) {
-      
     //sending text back in json
     case "/":
       res.setHeader("Content-Type", "text/plain");
