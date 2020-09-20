@@ -1,3 +1,15 @@
+## For the project
+
+To start the project<br>
+Copy and run this commands in your **favourite editor**
+
+```terminal
+git clone https://github.com/n1rjal/nodejs-30-days.git
+cd nodejs-30-days
+git checkout day-1
+node server.js
+```
+
 # 30 days Node JS
 
 > Challenging myself my going 30 days straight learning into node js.<br>
