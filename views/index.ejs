@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shortener</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="container my-3">
+      <h3>
+        Welocme to N1 Url Shortener
+      </h3>
+        <form action="#" method="POST">
+            <input type="text" class="w-70 p-1" placeholder="Enter your Url" required name="url" />
+            <input type="submit" class="btn btn-outline-dark p-1" />
+        </form>
+      <small class="container text-muted">Total Urls = <%= urls.length%></small>
+
+    </div>
+    <hr>
+
+    <table class="container table py-1">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Short Url</th>
+            <th scope="col">Long Url / Redirects To </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i=0;i<urls.length; i++) {%>
+          <tr>
+            <%var currUrl = urls[i] %>
+            <th scope="row"><%= i+1 %></th>
+            <td>
+              <a href="<%= currUrl._id %>">
+                <%= currUrl._id %>
+              </a>
+            </td>
+            <td>
+              <a href="<%= currUrl.url %>">
+                <%= currUrl.url %>
+              </a>
+            </td>
+          </tr>
+          <%}%>
+        </tbody>
+      </table>
+</body>
+</html>
