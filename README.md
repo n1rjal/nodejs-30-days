@@ -3,7 +3,7 @@
 > Challenging myself my going 30 days straight learning into node js.<br>
 > Starting the challenge from **20 September 2020**
 
-## Motivation:
+## Motivation
 
 I believe I have learnt enough Django to built mid level or deployable projects.<br>
 _Now i want to do the level my django and node skill_
