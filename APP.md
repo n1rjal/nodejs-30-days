@@ -28,4 +28,6 @@ ExepenseModel
 
 Users will add **their expense** throught form and our backend will Validate the data being recieved and if valid. The entry will be entered.<br>
 
+A graph will be added in the frontend. <br>
 
+**ListView, DetailView and CRUD** will be implemented in this app
