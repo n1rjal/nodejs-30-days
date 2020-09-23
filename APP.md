@@ -9,7 +9,7 @@ The model and Schema that I will be in use for the app will have following
 
 <pre>
 
-|ExepenseModel
+ExepenseModel
     |-> ExpenseSchema
         |-> Title
             |-> Type => String
