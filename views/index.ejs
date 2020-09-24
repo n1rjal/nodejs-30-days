@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Expense Tracker</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="bg-light color-dark p-2 text-center">
+            <form action="#" method="POST" class="expense-adder">
+                <h5 style="text-transform: uppercase">
+                    When did you last spend? Enter here
+                </h5>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Enter your expense title"
+                    required
+                />
+                <input
+                    type="number"
+                    name="spent"
+                    placeholder="How much did you spent"
+                    required
+                />
+                <input type="date" name="date" />
+                <br /><br />
+
+                <textarea
+                    class="p-1"
+                    placeholder="Why?? Explain us"
+                    cols="60"
+                    rows="5"
+                    name="info"
+                ></textarea
+                ><br />
+                <input class="btn btn-outline-dark w-20" type="submit" />
+            </form>
+        </div>
+        <div class="container py-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Spent(NRS)</th>
+                        <th scope="col">Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for (var i=0;i<expenses.length;i++){ %>
+                    <tr>
+                        <% currExp = expenses[i] %>
+                        <th scope="row"><%= i+1 %></th>
+                        <td><%= currExp.title %></td>
+                        <td><%= currExp.date %></td>
+                        <td><%= currExp.spent %></td>
+                        <td><a href="/expense/<%=currExp._id %>">Click me</a></td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
