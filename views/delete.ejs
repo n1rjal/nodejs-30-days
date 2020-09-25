@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <% function apz(n){ if(n <= 9){ return "0" + n; } return n }%>
+        <div class="bg-light color-dark p-2 my-5 text-center">
+            <form action="#" method="POST" class="expense-adder">
+                <h5 style="text-transform: uppercase">
+                    When did you last spend? Enter here
+                </h5>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Enter your expense title"
+                    required
+                    value="<%=exp.title%>"
+                />
+                <input
+                    type="number"
+                    name="spent"
+                    placeholder="How much did you spent"
+                    required
+                    value="<%=exp.spent%>"
+                />
+                <% var current_datetime=new Date(exp.date)%> <input type="date"
+                value="<%= apz(current_datetime.getFullYear()) + "-" +
+                apz(current_datetime.getMonth()+1)
+                +"-"+apz(current_datetime.getDate()) %>" name="date" />
+                <br /><br />
+
+                <textarea
+                    class="p-1"
+                    placeholder="Why?? Explain us"
+                    cols="60"
+                    rows="5"
+                    name="info"
+                >
+<%= exp.info%></textarea
+                ><br />
+                <br />
+                Do you want to delete this entry?<br />
+                <input
+                    type="submit"
+                    class="btn btn-outline-danger px-3"
+                    value="Yes, delete it"
+                />
+                <a class="btn btn-outline-primary px-3" href="/">No</a>
+            </form>
+        </div>
+    </body>
+</html>
