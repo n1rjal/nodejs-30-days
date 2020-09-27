@@ -30,10 +30,14 @@
                 <p><%- info %></p>
             </div>
             <div>
-                <a href="/edit" class="btn btn-outline-dark px-3"
+                <a
+                    href="/expense/<%=expense.id%>/edit"
+                    class="btn btn-outline-dark px-3"
                     >Edit your Entry</a
                 >
-                <a href="/delete" class="btn btn-danger px-3"
+                <a
+                    href="/expense/<%=expense.id%>/delete"
+                    class="btn btn-danger px-3"
                     >Delete your Entry</a
                 >
             </div>

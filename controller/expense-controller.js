@@ -6,16 +6,17 @@ const markdown_it = require("markdown-it");
 
 //markdown it instance
 mkd = new markdown_it();
+var total = 0;
 
 router
     .get("/", async function (req, res) {
         if (req.query.q) {
             var rx = new RegExp("^" + req.query.q, "gi");
             var expenses = await expenseModel.find({ title: rx });
-            res.render("index", { expenses: expenses, mkd: mkd });
+            res.render("expense/index", { expenses: expenses, mkd: mkd });
         } else {
             var expenses = await expenseModel.find();
-            res.render("index", { expenses: expenses, mkd: mkd });
+            res.render("expense/index", { expenses: expenses, mkd: mkd });
         }
     })
     .post("/", async function (req, res) {
@@ -30,7 +31,7 @@ router.get("/expense/:id", async function (req, res) {
     var exp = await expenseModel.findById(req.params.id);
     var info = mkd.render(exp.info);
     exp !== null
-        ? res.render("detail", {
+        ? res.render("expense/detail", {
               expense: exp,
               info: info,
           })
@@ -41,7 +42,7 @@ router
     .get("/expense/:id/edit", async function (req, res) {
         var exp = await expenseModel.findById(req.params.id);
 
-        res.render("update", { exp: exp });
+        res.render("expense/update", { exp: exp });
     })
     .post("/expense/:id/edit", async function (req, res) {
         var exp = await expenseModel.findByIdAndUpdate(
@@ -57,7 +58,7 @@ router
 router
     .get("/expense/:id/delete", async function (req, res) {
         var exp = await expenseModel.findById(req.params.id);
-        res.render("delete", { exp: exp });
+        res.render("expense/delete", { exp: exp });
     })
     .post("/expense/:id/delete", async function (req, res) {
         expenseModel.findByIdAndDelete(req.params.id, function (err, docs) {
