@@ -5,6 +5,7 @@ var connect = () => {
         .connect("mongodb://localhost/expenseTracker", {
             useNewUrlParser: true,
             useUnifiedTopology: true,
+            createIndexes: true,
         })
         .then(console.log("Connected to Database"))
         .catch((err) => {

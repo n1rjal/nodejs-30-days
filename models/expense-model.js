@@ -20,6 +20,6 @@ var expenseSchema = mongoose.Schema({
     },
 });
 
-var expenseModel = mongoose.model("expense", expenseSchema);
+var expenseModel = mongoose.model("Expense", expenseSchema);
 
 module.exports = expenseModel;
