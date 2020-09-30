@@ -14,10 +14,18 @@ router
         if (req.query.q) {
             var rx = new RegExp("^" + req.query.q, "gi");
             var expenses = await expenseModel.find({ title: rx });
-            res.render("expense/index", { expenses: expenses, mkd: mkd });
+            res.render("expense/index", {
+                expenses: expenses,
+                mkd: mkd,
+                user: req.session.user,
+            });
         } else {
             var expenses = await expenseModel.find();
-            res.render("expense/index", { expenses: expenses, mkd: mkd });
+            res.render("expense/index", {
+                expenses: expenses,
+                mkd: mkd,
+                user: req.session.user,
+            });
         }
     })
     .post(

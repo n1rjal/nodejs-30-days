@@ -3,8 +3,12 @@ const router = express.Router();
 const userModel = require("../models/user-model");
 const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
+const jwt = require("jsonwebtoken");
 
 const regitser = (req, res, next) => {
+    if (req.session.user) {
+        res.redirect("/");
+    }
     bcrypt.hash(req.body.password, 10, function (err, hashedPassword) {
         var errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -19,7 +23,12 @@ const regitser = (req, res, next) => {
         });
         user.save()
             .then((user) => {
-                res.send("Signed In Succesfully");
+                var token = jwt.sign(
+                    { _id: user._id, name: user.username },
+                    "lets keep it secret"
+                );
+
+                res.send({ token: token });
             })
             .catch((err) => {
                 res.send("An error Occured" + err);
@@ -28,8 +37,10 @@ const regitser = (req, res, next) => {
 };
 
 const auth = async (req, res, next) => {
+    if (req.session.user) {
+        res.redirect("/");
+    }
     await userModel.findOne({ username: req.body.username }).then((user) => {
-        console.log("user => ", user);
         if (!user) {
             res.send("No user Found");
         } else {
@@ -37,10 +48,9 @@ const auth = async (req, res, next) => {
                 .compare(req.body.password, user.password)
                 .then((result) => {
                     if (result) {
-                        res.send(
-                            "Passowrd and username is valid. You will be signed in as " +
-                                user.username
-                        );
+                        console.log(req.session);
+                        req.session.user = user;
+                        res.redirect("/");
                     }
                     res.send("Password not matched");
                 })
@@ -53,6 +63,11 @@ const auth = async (req, res, next) => {
 
 router
     .get("/create", (req, res) => {
+        console.log(req.session.user);
+
+        if (req.session.user) {
+            res.redirect("/");
+        }
         res.render("user/usercreate");
     })
     .post(
@@ -66,8 +81,17 @@ router
 
 router
     .get("/login", (req, res) => {
+        console.log(req.session.user);
+        if (req.session.user) {
+            res.redirect("/");
+        }
         res.render("user/userlogin");
     })
     .post("/login", auth);
+
+router.get("/logout", (req, res) => {
+    req.session.user = null;
+    res.redirect("/");
+});
 
 module.exports = router;

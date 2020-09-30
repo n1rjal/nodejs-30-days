@@ -30,6 +30,11 @@
               </form>
             </div>
           </nav>
+          <%if (user){%>
+          <h4>Hello <%=user.username%></h4>
+          <%}else{%>
+          <a href="/user/login">Please login</a>
+          <%}%>
         <div class="bg-light color-dark p-3 text-center">
             <form action="#" method="POST" class="expense-adder">
                 <h5 style="text-transform: uppercase">
