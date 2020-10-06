@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mailer</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <form action="#" class="p-3" method="POST">
+            <label for="to">To</label>
+            <input
+                type="email"
+                placeholder="Send email to "
+                name="emailto"
+            /><br />
+            <label for="to">From</label>
+            <input
+                type="email"
+                placeholder="Send email from "
+                name="emailfrom"
+            /><br />
+            <textarea name="msg" placeholder="Message"></textarea><br />
+            <input type="submit" />
+        </form>
+    </body>
+</html>
