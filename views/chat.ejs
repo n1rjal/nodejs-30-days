@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Chat</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"
+      integrity="sha512-AcZyhRP/tbAEsXCCGlziPun5iFvcSUpEz2jKkx0blkYKbxU81F+iq8FURwPn1sYFeksJ+sDDrI5XujsqSobWdQ=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="messages"></div>
+    <p id="typing"></p>
+    <form class="messageform" id="msgform">
+      <input type="text" placeholder="Enter a message" name="msg" />
+      <input type="submit" value="Send" />
+    </form>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

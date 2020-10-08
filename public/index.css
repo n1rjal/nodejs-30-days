@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: blanchedalmond;
+}
+
+.messages {
+  height: 90vh;
+  max-width: 100vw;
+  overflow-y: scroll;
+  padding: 1cm 0.3cm;
+  width: 100vw;
+}
+
+.message-container.own {
+  margin-left: 60vw;
+}
+
+.message-container {
+  display: flex;
+  margin: 10px 0;
+}
+
+.message {
+  padding: 5px;
+  border-radius: 5px;
+  color: rgb(71, 71, 71);
+  display: block;
+}
+
+.user {
+  color: rgb(255, 22, 150);
+}
+
+.messageform {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(46, 43, 43);
+  height: auto;
+  padding: 0.3cm 0;
+}
+
+#typing {
+  font-size: 20px;
+}
+
+.messageform input[type="text"] {
+  width: 80vw;
+  margin: 0;
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
+  padding-left: 0.9cm;
+  border-radius: 4px;
+  height: 1cm;
+}
+
+.messageform input[type="submit"] {
+  width: 1.5cm;
+  height: 1cm;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 0;
+}
