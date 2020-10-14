@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%if (data){%><%=data.name%> <%}else{%> Error <%}%></title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/index.css" type="text/css" />
+  </head>
+  <body>
+    <%if (data){%>
+    <div class="py-5 poster">
+      <div class="my-1 main">
+        <img class="avatar" src="<%=data.avatar_url%>" alt="user photo" />
+        <div class="counters">
+          <h1 class="name"><%=data.name%></h1>
+          <p class="counter">Followers : <%=data.followers%></p>
+          <p class="counter">Following : <%=data.following%></p>
+          <p class="counter">Public Repos : <%=data.public_repos%></p>
+        </div>
+      </div>
+      <hr />
+      <div class="info">
+        <p class="bio"><em><%=data.bio%></em></p>
+        <hr />
+        <img src="<%=qr%>" /><br />
+        <a href="<%=data.blog%>" target="_blonk" class="link"><%=data.blog%></a>
+        <p class="location"><%=data.location%></p>
+      </div>
+    </div>
+    <%}else{%>
+    <h3>Please provide user in the get request</h3>
+    <%}%>
+  </body>
+</html>
