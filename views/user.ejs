@@ -14,27 +14,23 @@
   </head>
   <body>
     <%if (data){%>
-    <div class="py-5 poster">
-      <div class="my-1 main">
-        <img class="avatar" src="<%=data.avatar_url%>" alt="user photo" />
-        <div class="counters">
-          <h1 class="name"><%=data.name%></h1>
-          <p class="counter">Followers : <%=data.followers%></p>
-          <p class="counter">Following : <%=data.following%></p>
-          <p class="counter">Public Repos : <%=data.public_repos%></p>
-        </div>
-      </div>
-      <hr />
-      <div class="info">
-        <p class="bio"><em><%=data.bio%></em></p>
-        <hr />
-        <img src="<%=qr%>" /><br />
-        <a href="<%=data.blog%>" target="_blonk" class="link"><%=data.blog%></a>
-        <p class="location"><%=data.location%></p>
-      </div>
+    <div class="poster-container">
+      <canvas id="poster"></canvas>
     </div>
     <%}else{%>
     <h3>Please provide user in the get request</h3>
     <%}%>
+    <script>
+      var canvas = document.getElementById("poster");
+      var ctx = canvas.getContext("2d");
+      canvas.width = 500;
+      canvas.height = 600;
+
+      var avatar = new Image();
+      avatar.src = "<%=data.avatar_url%>";
+      console.log(avatar);
+      ctx.drawImage(avatar, 200, 200);
+      ctx.fillRect(100, 100, 100, 100);
+    </script>
   </body>
 </html>
