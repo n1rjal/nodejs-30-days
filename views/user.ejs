@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%if (data){%><%=data.name%> <%}else{%> Error <%}%></title>
+    <title>Github profile</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -13,24 +13,10 @@
     <link rel="stylesheet" href="css/index.css" type="text/css" />
   </head>
   <body>
-    <%if (data){%>
     <div class="poster-container">
       <canvas id="poster"></canvas>
     </div>
-    <%}else{%>
-    <h3>Please provide user in the get request</h3>
-    <%}%>
-    <script>
-      var canvas = document.getElementById("poster");
-      var ctx = canvas.getContext("2d");
-      canvas.width = 500;
-      canvas.height = 600;
 
-      var avatar = new Image();
-      avatar.src = "<%=data.avatar_url%>";
-      console.log(avatar);
-      ctx.drawImage(avatar, 200, 200);
-      ctx.fillRect(100, 100, 100, 100);
-    </script>
+    <script src="js/index.js"></script>
   </body>
 </html>
