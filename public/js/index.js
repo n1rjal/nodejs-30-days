@@ -1,4 +1,5 @@
 //lets parse the data
+// This file deals with default drawing
 var canvas = document.getElementById("poster");
 var ctx = canvas.getContext("2d");
 
@@ -94,27 +95,33 @@ const makeHR = (x, y, mx = 0, color = "#fff") => {
   ctx.stroke();
 };
 
-makeTitle(data.name, 180, 60, "#fef6eb");
-writeText(data.bio, 180 + 10, 60 + 30, "#fef6eb", { quote: true });
-writeText(`Site : ${data.blog}`, 220, 130, "white");
-writeText(`Location : ${data.location}`, 520, 130, "white");
-writeText(`Email : ${data.email}`, 720, 130, "white");
+const makeDefaultDrawing = () => {
+  ctx.fillStyle = "#31393c";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  makeTitle(data.name, 180, 60, "#fef6eb");
+  writeText(data.bio, 180 + 10, 60 + 30, "#fef6eb", { quote: true });
+  writeText(`Site : ${data.blog}`, 220, 130, "white");
+  writeText(`Location : ${data.location}`, 520, 130, "white");
+  writeText(`Email : ${data.email}`, 720, 130, "white");
 
-// lets draw his/her face
-drawImage(data.avatar_url, 150, 150);
+  // lets draw his/her face
+  drawImage(data.avatar_url, 150, 150);
 
-//QR code for users github url
-qrPositionObj = {
-  posX: canvas.width - 50,
-  posY: 0,
+  //QR code for users github url
+  qrPositionObj = {
+    posX: canvas.width - 50,
+    posY: 0,
+  };
+  qrCode = genQR(data.html_url);
+  drawImage(qrCode, 50, 50, qrPositionObj);
+
+  // lets make a line from image end to canvas end
+  makeHR(0, 155, 10, "white");
+  // Follower Following
+  writeText(`Public Repos : ${data.public_repos}`, 100, 180, "#fff");
+  writeText(`Following : ${data.following}`, 500, 180, "#fff");
+  writeText(`Followers : ${data.followers}`, 900, 180, "#fff");
+  makeHR(0, 195, 10, "white");
 };
-qrCode = genQR(data.html_url);
-drawImage(qrCode, 50, 50, qrPositionObj);
 
-// lets make a line from image end to canvas end
-makeHR(0, 155, 10, "white");
-// Follower Following
-writeText(`Public Repos : ${data.public_repos}`, 100, 180, "#fff");
-writeText(`Following : ${data.following}`, 500, 180, "#fff");
-writeText(`Followers : ${data.followers}`, 900, 180, "#fff");
-makeHR(0, 195, 10, "white");
+makeDefaultDrawing();

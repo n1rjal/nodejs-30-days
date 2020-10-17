@@ -13,10 +13,6 @@ a:hover {
   color: white;
 }
 
-#poster {
-  background-color: #31393c;
-}
-
 .poster-container {
   padding: 1cm;
   display: flex;
