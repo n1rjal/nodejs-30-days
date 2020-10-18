@@ -3,6 +3,10 @@
 > Challenging myself my going 30 days straight learning into node js.<br>
 > Starting the challenge from **20 September 2020**
 
+## Notice:
+From day-29 onwards please refer to this repo.
+(Click here) [https://github.com/n1rjal/nodejs-homeserver]
+
 ## Motivation:
 
 I believe I have learnt enough Django to built mid level or deployable projects.<br>
